@@ -15,12 +15,12 @@ public class ChatMessageService {
         return (List<ChatMessage>)repository.findAll();
     }
 
-    public ChatMessage insert(ChatMessageRequest chatMessage) {
+    public void insert(ChatMessageRequest chatMessage) {
         ChatMessage message = ChatMessage.builder()
                 .username(chatMessage.username)
                 .message(chatMessage.message)
                 .datetimeCreated(new Timestamp(chatMessage.datetimeCreated))
                 .build();
-        return repository.save(message);
+        repository.save(message);
     }
 }
