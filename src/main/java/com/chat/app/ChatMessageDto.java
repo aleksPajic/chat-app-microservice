@@ -1,11 +1,13 @@
 package com.chat.app;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Setter()
 @Getter()
-public class ChatMessageRequest {
+@Builder()
+@NoArgsConstructor()
+@AllArgsConstructor()
+public class ChatMessageDto {
     public String username;
 
     public String message;

@@ -16,12 +16,12 @@ public class ChatMessageController {
     private ChatMessageService chatMessageService;
 
     @GetMapping("/all")
-    public List<ChatMessage> getAllMessages() {
+    public List<ChatMessageDto> getAllMessages() {
         return chatMessageService.findAllMessages();
     }
 
     @PostMapping("/create")
-    public HttpStatus create(@RequestBody() ChatMessageRequest chatMessage) {
+    public HttpStatus create(@RequestBody() ChatMessageDto chatMessage) {
         try {
             chatMessageService.insert(chatMessage);
         } catch (ParseException e) {
