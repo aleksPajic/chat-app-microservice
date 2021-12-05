@@ -1,6 +1,7 @@
 package com.chat.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -15,7 +16,8 @@ public class ChatMessageService {
     private ChatAppRepository repository;
 
     public List<ChatMessage> findAllMessages() {
-        return (List<ChatMessage>) repository.findAll();
+        final Sort sort = Sort.by(Sort.Direction.ASC, "datetimeCreated");
+        return (List<ChatMessage>) repository.findAll(sort);
     }
 
     public void insert(ChatMessageRequest chatMessage) throws ParseException {
