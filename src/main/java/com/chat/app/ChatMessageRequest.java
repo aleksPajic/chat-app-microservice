@@ -10,5 +10,5 @@ public class ChatMessageRequest {
 
     public String message;
 
-    public Long datetimeCreated;
+    public String datetimeCreated;
 }
